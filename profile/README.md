@@ -27,7 +27,7 @@
 4. Run `game-management/src/main/java/edu/agh/twonhalffront/GameApplication.java` and `lobby-creator-service/src/main/java/edu/agh/twonhalffront/LobbyCreatorApplication.java`
 
 ## Frontend
-1. Enter `Backend` repository directory
+1. Enter `Frontend` repository directory
 2. Run `yarn run` in your terminal
 
 ## In your browser

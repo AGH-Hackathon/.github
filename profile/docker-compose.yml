@@ -1,0 +1,43 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres
+    networks:
+      - ai-game-network
+    environment:
+      POSTGRES_DB: "hackaton"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
+
+  lobby-creator-service:
+    image: atyranski/lobby-create-service:1.0.0
+    networks:
+      - ai-game-network
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+
+  game-management:
+    image: atyranski/game-management:1.0.0
+    networks:
+      - ai-game-network
+    depends_on:
+      - postgres
+    ports:
+      - "8008:8008"
+
+  ai-image-game-front:
+    image: atyranski/ai-image-game-front:1.0.0
+    depends_on:
+      - lobby-creator-service
+      - game-management
+    ports:
+      - "3000:3000"
+
+networks:
+  ai-game-network:
+    driver: bridge

@@ -17,7 +17,7 @@
 ## Frontend
 1. Clone `Frontend` repository
 2. Enter the repository directory
-3. Run `yarn install` in your terminal
+3. Run `yarn install --frozen-lockfile` in your terminal
 
 # Running the application
 ## Backend
